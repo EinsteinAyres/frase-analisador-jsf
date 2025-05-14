@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+#cabecalho, #rodape {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#conteudo {
+    max-width: 800px;
+    margin: auto;
+}

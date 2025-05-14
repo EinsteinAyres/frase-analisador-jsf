@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/WEB-INF/template.xhtml">
+
+  <ui:define name="titulo">Analisador de Frases</ui:define>
+
+  <ui:define name="conteudo">
+    <h:form id="formFrase">
+      <p:panel header="Digite uma frase para análise">
+        <p:inputTextarea value="#{fraseBean.frase}"
+                         rows="4"
+                         cols="60"
+                         placeholder="Ex: O rato roeu a roupa do rei de Roma"
+                         autoResize="false"
+                         styleClass="p-mb-3" />
+
+        <p:commandButton value="Analisar"
+                         action="#{fraseBean.analisar}"
+                         update="resultadoPanel"
+                         icon="pi pi-search"
+                         styleClass="p-button-rounded p-button-primary p-mt-2" />
+      </p:panel>
+
+      <p:outputPanel id="resultadoPanel">
+        <p:dataTable var="entry"
+                     value="#{fraseBean.resultado.entrySet().toArray()}"
+                     rendered="#{not empty fraseBean.resultado}"
+                     style="margin-top:20px"
+                     rowKey="#{entry.key}">
+
+          <p:column headerText="Palavra">
+            <h:outputText value="#{entry.key}" />
+          </p:column>
+
+          <p:column headerText="Ocorrências">
+            <h:outputText value="#{entry.value}" />
+          </p:column>
+        </p:dataTable>
+      </p:outputPanel>
+    </h:form>
+  </ui:define>
+
+</ui:composition>
+</html>

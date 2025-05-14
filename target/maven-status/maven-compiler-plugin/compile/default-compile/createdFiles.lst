@@ -1,0 +1,4 @@
+br\com\teste\controller\FraseBean.class
+br\com\teste\service\AnalisadorFraseService.class
+br\com\teste\util\TextoUtils.class
+br\com\teste\model\Palavra.class
