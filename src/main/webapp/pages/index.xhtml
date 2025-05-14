@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
-<ui:composition template="/WEB-INF/template.xhtml">
+<ui:composition template="/WEB-INF/template.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
 
   <ui:define name="titulo">Analisador de Frases</ui:define>
 
@@ -11,17 +10,21 @@
     <h:form id="formFrase">
       <p:panel header="Digite uma frase para análise">
         <p:inputTextarea value="#{fraseBean.frase}"
-                         rows="4"
-                         cols="60"
-                         placeholder="Ex: O rato roeu a roupa do rei de Roma"
-                         autoResize="false"
-                         styleClass="p-mb-3" />
+                 rows="4"
+                 cols="60"
+                 placeholder="Ex: O rato roeu a roupa do rei de Roma"
+                 autoResize="false"
+                 required="true"
+                 requiredMessage="É necessário digitar uma frase para análise."
+                 styleClass="p-mb-3" />
+
 
         <p:commandButton value="Analisar"
                          action="#{fraseBean.analisar}"
                          update="resultadoPanel"
                          icon="pi pi-search"
-                         styleClass="p-button-rounded p-button-primary p-mt-2" />
+                         styleClass="p-button-rounded p-button-primary p-mt-2" 
+                         style="margin-left: 10px"/>
       </p:panel>
 
       <p:outputPanel id="resultadoPanel">
@@ -44,4 +47,3 @@
   </ui:define>
 
 </ui:composition>
-</html>
