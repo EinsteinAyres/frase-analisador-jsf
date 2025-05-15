@@ -1,7 +1,7 @@
-package br.com.teste.service;
+package br.com.contador.service;
 
-import br.com.teste.model.Palavra;
-import br.com.teste.util.TextoUtils;
+import br.com.contador.model.Palavra;
+import br.com.contador.util.TextoUtils;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.util.*;

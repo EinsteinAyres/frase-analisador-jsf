@@ -8,42 +8,58 @@
 
   <ui:define name="conteudo">
     <h:form id="formFrase">
-      <p:panel header="Digite uma frase para análise">
-        <p:inputTextarea value="#{fraseBean.frase}"
-                 rows="4"
-                 cols="60"
-                 placeholder="Ex: O rato roeu a roupa do rei de Roma"
-                 autoResize="false"
-                 required="true"
-                 requiredMessage="É necessário digitar uma frase para análise."
-                 styleClass="p-mb-3" />
+      <p:panel header="Digite uma frase para análise"
+               styleClass="p-shadow-4"
+               style="padding: 2rem; border-radius: 10px;">
 
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          
+          <p:inputTextarea id="fraseInput"
+                           value="#{fraseBean.frase}"
+                           rows="4"
+                           autoResize="false"
+                           placeholder="Ex: O rato roeu a roupa do rei de Roma"
+                           required="true"
+                           requiredMessage="É necessário digitar uma frase para análise."
+                           style="width: 100%; font-size: 1rem;" />
+          
+          <p:message for="fraseInput"
+                     id="fraseInputMessage"
+                     display="text"
+                     style="color: red;" />
 
-        <p:commandButton value="Analisar"
-                         action="#{fraseBean.analisar}"
-                         update="resultadoPanel"
-                         icon="pi pi-search"
-                         styleClass="p-button-rounded p-button-primary p-mt-2" 
-                         style="margin-left: 10px"/>
+          <p:commandButton value="Analisar"
+                           action="#{fraseBean.analisar}"
+                           update="resultadoPanel fraseInputMessage"
+                           icon="pi pi-search"
+                           styleClass="p-button-rounded p-button-lg p-button-primary"
+                           style="align-self: flex-start;" 
+                           process="@form" />
+        </div>
       </p:panel>
 
       <p:outputPanel id="resultadoPanel">
-        <p:dataTable var="entry"
-                     value="#{fraseBean.resultado.entrySet().toArray()}"
-                     rendered="#{not empty fraseBean.resultado}"
-                     style="margin-top:20px"
-                     rowKey="#{entry.key}">
+        <p:panel header="Resultado da Análise"
+                 rendered="#{not empty fraseBean.resultado}"
+                 styleClass="p-shadow-2"
+                 style="margin-top: 2rem; padding: 1rem; border-radius: 10px;">
+          
+          <p:dataTable var="entry"
+                       value="#{fraseBean.resultado.entrySet().toArray()}"
+                       rowKey="#{entry.key}"
+                       styleClass="p-datatable-striped p-datatable-sm"
+                       style="margin-top: 1rem;">
+            
+            <p:column headerText="Palavra">
+              <h:outputText value="#{entry.key}" />
+            </p:column>
 
-          <p:column headerText="Palavra">
-            <h:outputText value="#{entry.key}" />
-          </p:column>
-
-          <p:column headerText="Ocorrências">
-            <h:outputText value="#{entry.value}" />
-          </p:column>
-        </p:dataTable>
+            <p:column headerText="Ocorrências">
+              <h:outputText value="#{entry.value}" />
+            </p:column>
+          </p:dataTable>
+        </p:panel>
       </p:outputPanel>
     </h:form>
   </ui:define>
-
 </ui:composition>

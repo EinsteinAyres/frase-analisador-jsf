@@ -1,7 +1,7 @@
-package br.com.teste.controller;
+package br.com.contador.controller;
 
-import br.com.teste.model.Palavra;
-import br.com.teste.service.AnalisadorFraseService;
+import br.com.contador.model.Palavra;
+import br.com.contador.service.AnalisadorFraseService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

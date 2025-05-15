@@ -1,4 +1,4 @@
-package br.com.teste.model;
+package br.com.contador.model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -51,4 +51,3 @@ public class Palavra implements Serializable {
         return texto + " (" + quantidade + ")";
     }
 }
-

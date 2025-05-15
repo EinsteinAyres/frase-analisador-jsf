@@ -1,0 +1,4 @@
+br\com\contador\controller\FraseBean.class
+br\com\contador\util\TextoUtils.class
+br\com\contador\model\Palavra.class
+br\com\contador\service\AnalisadorFraseService.class
