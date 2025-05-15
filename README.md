@@ -186,7 +186,7 @@ Fique à vontade para bifurcar, melhorar ou adaptar conforme sua necessidade.
 
 ## 🧠 Autor
 
-**Paulo Junior**  
+**Einstein Ayres**  
 Software Developer
 
 ---
